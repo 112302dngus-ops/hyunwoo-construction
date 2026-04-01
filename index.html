@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>현우건설 | 신뢰할 수 있는 시공 파트너</title>
+  <meta name="description" content="신뢰와 품질, 안전을 바탕으로 책임 있는 시공을 수행하는 현우건설 홈페이지입니다." />
+  <style>
+    :root {
+      --primary: #163047;
+      --primary-soft: #244967;
+      --accent: #eef3f7;
+      --text: #1f2933;
+      --muted: #667085;
+      --line: #d9e2ec;
+      --white: #ffffff;
+      --max-width: 1200px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Pretendard", "Noto Sans KR", Arial, sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(calc(100% - 40px), var(--max-width));
+      margin: 0 auto;
+    }
+
+    .section { padding: 96px 0; }
+
+    .section-title {
+      font-size: 2rem;
+      margin: 0 0 12px;
+      color: var(--primary);
+      letter-spacing: -0.03em;
+    }
+
+    .section-desc {
+      margin: 0 0 40px;
+      color: var(--muted);
+      max-width: 720px;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(217, 226, 236, 0.8);
+    }
+
+    .nav {
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: -0.03em;
+    }
+
+    .menu {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      color: var(--muted);
+      font-size: 0.97rem;
+    }
+
+    .menu a:hover { color: var(--primary); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border-radius: 999px;
+      border: 1px solid var(--primary);
+      font-weight: 600;
+      transition: 0.2s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-soft);
+      border-color: var(--primary-soft);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--primary);
+    }
+
+    .btn-secondary:hover { background: var(--accent); }
+
+    .hero {
+      padding: 100px 0 88px;
+      background: linear-gradient(180deg, #f8fbfd 0%, #ffffff 100%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 20px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: var(--primary);
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(2.4rem, 5vw, 4.4rem);
+      line-height: 1.18;
+      letter-spacing: -0.045em;
+      color: var(--primary);
+    }
+
+    .hero p {
+      margin: 22px 0 0;
+      max-width: 680px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      margin-top: 32px;
+      flex-wrap: wrap;
+    }
+
+    .hero-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 24px;
+      box-shadow: 0 20px 50px rgba(15, 23, 42, 0.06);
+    }
+
+    .hero-visual {
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: #dfe7ef;
+      min-height: 420px;
+      display: flex;
+      align-items: end;
+      padding: 32px;
+      background:
+        linear-gradient(rgba(22,48,71,0.12), rgba(22,48,71,0.22)),
+        url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80');
+      background-size: cover;
+      background-position: center;
+      color: var(--white);
+    }
+
+    .hero-visual strong {
+      display: block;
+      font-size: 1.35rem;
+      margin-bottom: 8px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 48px;
+    }
+
+    .stat {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--white);
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--primary);
+      font-size: 1.5rem;
+      margin-bottom: 6px;
+    }
+
+    .cards-4, .cards-3, .project-grid, .contact-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .cards-4 { grid-template-columns: repeat(4, 1fr); }
+    .cards-3 { grid-template-columns: repeat(3, 1fr); }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 28px;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      color: var(--primary);
+      font-size: 1.15rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .about-wrap {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 32px;
+      align-items: stretch;
+    }
+
+    .about-box {
+      border-radius: 28px;
+      border: 1px solid var(--line);
+      padding: 36px;
+      background: var(--accent);
+    }
+
+    .about-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .about-list div {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(22,48,71,0.12);
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .about-list span:last-child {
+      color: var(--muted);
+      font-weight: 500;
+      text-align: right;
+    }
+
+    .project-grid { grid-template-columns: repeat(3, 1fr); }
+
+    .project-card {
+      overflow: hidden;
+      border-radius: 24px;
+      border: 1px solid var(--line);
+      background: var(--white);
+    }
+
+    .project-image {
+      height: 220px;
+      background: #cfd8e3;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .project-body { padding: 24px; }
+
+    .project-meta {
+      display: grid;
+      gap: 8px;
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .contact-section {
+      background: linear-gradient(180deg, #163047 0%, #1b3f5c 100%);
+      color: var(--white);
+    }
+
+    .contact-grid {
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+    }
+
+    .contact-panel {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 28px;
+      padding: 32px;
+    }
+
+    .contact-panel h3,
+    .contact-section .section-title { color: var(--white); }
+
+    .contact-section .section-desc,
+    .contact-panel p,
+    .contact-list { color: rgba(255,255,255,0.82); }
+
+    .contact-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 14px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.08);
+      border-radius: 14px;
+      color: var(--white);
+      font: inherit;
+    }
+
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+      color: rgba(255,255,255,0.55);
+    }
+
+    .footer {
+      padding: 28px 0;
+      background: #102433;
+      color: rgba(255,255,255,0.72);
+      font-size: 0.92rem;
+    }
+
+    .footer-wrap {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 1024px) {
+      .hero-grid, .about-wrap, .contact-grid, .cards-4, .cards-3, .project-grid, .stats {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero-visual { min-height: 320px; }
+    }
+
+    @media (max-width: 768px) {
+      .nav {
+        height: auto;
+        padding: 18px 0;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .menu {
+        flex-wrap: wrap;
+        gap: 14px 18px;
+      }
+
+      .hero { padding-top: 64px; }
+
+      .hero-grid, .about-wrap, .contact-grid, .cards-4, .cards-3, .project-grid, .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .section { padding: 72px 0; }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a href="#home" class="brand">현우건설</a>
+      <nav class="menu">
+        <a href="#about">회사소개</a>
+        <a href="#services">사업분야</a>
+        <a href="#projects">시공실적</a>
+        <a href="#contact">문의하기</a>
+      </nav>
+      <a href="#contact" class="btn btn-secondary">상담문의</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <span class="eyebrow">HYUNWOO CONSTRUCTION</span>
+            <h1>신뢰할 수 있는 시공 파트너, 현우건설</h1>
+            <p>
+              현우건설은 체계적인 시공관리와 책임 있는 현장 운영을 바탕으로 공공 및 민간 건설 프로젝트를 안정적으로 수행합니다.
+              품질과 안전을 우선으로 생각하며, 정확한 공정 관리로 완성도 높은 결과를 제공합니다.
+            </p>
+            <div class="hero-actions">
+              <a href="#about" class="btn btn-primary">회사소개 보기</a>
+              <a href="#projects" class="btn btn-secondary">시공실적 보기</a>
+            </div>
+          </div>
+
+          <div class="hero-card">
+            <div class="hero-visual">
+              <div>
+                <strong>책임 있는 시공, 명확한 기준</strong>
+                <span>현장 중심의 실무 역량으로 건설의 가치를 높입니다.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="stats">
+          <div class="stat">
+            <strong>Trust</strong>
+            <span>고객과의 약속을 지키는 시공 기준</span>
+          </div>
+          <div class="stat">
+            <strong>Quality</strong>
+            <span>체계적인 공정과 품질관리</span>
+          </div>
+          <div class="stat">
+            <strong>Safety</strong>
+            <span>안전을 우선으로 하는 현장 운영</span>
+          </div>
+          <div class="stat">
+            <strong>Responsibility</strong>
+            <span>계획부터 준공까지 책임 있는 수행</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="about-wrap">
+          <div>
+            <h2 class="section-title">현우건설 소개</h2>
+            <p class="section-desc">
+              현우건설은 신뢰, 품질, 안전을 바탕으로 다양한 건설 프로젝트를 수행하고 있습니다. 축적된 현장 경험과 체계적인 공정 관리를 통해
+              고객이 신뢰할 수 있는 시공 서비스를 제공합니다.
+            </p>
+            <a href="#contact" class="btn btn-primary">회사 정보 문의</a>
+          </div>
+
+          <div class="about-box">
+            <h3>회사 핵심 정보</h3>
+            <div class="about-list">
+              <div><span>회사명</span><span>주식회사 현우건설</span></div>
+              <div><span>주요업무</span><span>건축공사 · 리모델링 · 유지보수</span></div>
+              <div><span>수행영역</span><span>공공공사 · 민간공사</span></div>
+              <div><span>핵심가치</span><span>신뢰 · 품질 · 안전 · 책임시공</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="values">
+      <div class="container">
+        <h2 class="section-title">현우건설의 기준</h2>
+        <p class="section-desc">불필요한 설명보다 명확한 기준으로 신뢰를 쌓아갑니다.</p>
+        <div class="cards-4">
+          <article class="card">
+            <h3>신뢰</h3>
+            <p>약속한 기준과 일정을 지키며 고객과의 믿음을 최우선으로 생각합니다.</p>
+          </article>
+          <article class="card">
+            <h3>품질</h3>
+            <p>체계적인 시공관리와 세심한 검토를 통해 완성도 높은 결과를 제공합니다.</p>
+          </article>
+          <article class="card">
+            <h3>안전</h3>
+            <p>모든 현장에서 안전을 우선 가치로 두고 안정적인 작업 환경을 구축합니다.</p>
+          </article>
+          <article class="card">
+            <h3>책임시공</h3>
+            <p>계획부터 준공까지 전 과정에 책임 있는 자세로 참여합니다.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services" style="background: #f8fbfd;">
+      <div class="container">
+        <h2 class="section-title">사업분야</h2>
+        <p class="section-desc">공공과 민간을 아우르는 다양한 시공 경험을 바탕으로 안정적인 건설 서비스를 제공합니다.</p>
+        <div class="cards-3">
+          <article class="card">
+            <h3>건축공사</h3>
+            <p>공공 및 민간 건축 프로젝트 전반에 대해 안정적인 시공 역량을 제공합니다.</p>
+          </article>
+          <article class="card">
+            <h3>리모델링</h3>
+            <p>기존 건축물의 기능과 공간 효율을 개선하는 맞춤형 리모델링 공사를 수행합니다.</p>
+          </article>
+          <article class="card">
+            <h3>유지보수 및 보수공사</h3>
+            <p>건축물의 성능 유지를 위한 보수, 보강, 유지관리 공사를 진행합니다.</p>
+          </article>
+          <article class="card">
+            <h3>공공공사</h3>
+            <p>기준과 절차를 준수하며 안정적이고 체계적인 시공을 제공합니다.</p>
+          </article>
+          <article class="card">
+            <h3>민간공사</h3>
+            <p>민간 건축주의 다양한 요구를 반영한 실용적이고 신뢰도 높은 시공 서비스를 제공합니다.</p>
+          </article>
+          <article class="card">
+            <h3>현장관리</h3>
+            <p>공정, 품질, 안전을 균형 있게 관리하며 완성도 높은 결과를 만듭니다.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="container">
+        <h2 class="section-title">대표 시공실적</h2>
+        <p class="section-desc">사진과 핵심 정보 중심으로 정리한 프로젝트 예시입니다. 실제 공사명과 사진으로 교체하면 바로 운영할 수 있습니다.</p>
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-image" style="background-image:url('https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1000&q=80');"></div>
+            <div class="project-body">
+              <h3>프로젝트명 예시 A</h3>
+              <div class="project-meta">
+                <span>위치: 충청북도 제천시</span>
+                <span>공사기간: 2025.03 ~ 2025.12</span>
+                <span>개요: 공공 건축시설 신축 공사</span>
+              </div>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-image" style="background-image:url('https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1000&q=80');"></div>
+            <div class="project-body">
+              <h3>프로젝트명 예시 B</h3>
+              <div class="project-meta">
+                <span>위치: 충청북도 충주시</span>
+                <span>공사기간: 2024.06 ~ 2025.02</span>
+                <span>개요: 리모델링 및 시설 개선 공사</span>
+              </div>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-image" style="background-image:url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1000&q=80');"></div>
+            <div class="project-body">
+              <h3>프로젝트명 예시 C</h3>
+              <div class="project-meta">
+                <span>위치: 충청북도 원주시</span>
+                <span>공사기간: 2023.11 ~ 2024.08</span>
+                <span>개요: 민간 건축 시공 프로젝트</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        <div class="contact-grid">
+          <div>
+            <h2 class="section-title">문의하기</h2>
+            <p class="section-desc">공사 상담, 견적 문의, 협력 제안 등 다양한 문의에 신속하고 성실하게 대응합니다.</p>
+            <div class="contact-list">
+              <div>전화번호: 000-0000-0000</div>
+              <div>이메일: info@hyunwoo.co.kr</div>
+              <div>주소: 충청북도 제천시 (추후 입력)</div>
+            </div>
+          </div>
+          <div class="contact-panel">
+            <h3>온라인 문의</h3>
+            <p>실제 운영 시에는 이메일 연동 폼 또는 외부 문의 시스템과 연결하면 됩니다.</p>
+            <form class="contact-form">
+              <input type="text" placeholder="이름 또는 업체명" />
+              <input type="text" placeholder="연락처" />
+              <input type="email" placeholder="이메일" />
+              <textarea rows="5" placeholder="문의 내용을 입력해주세요."></textarea>
+              <button type="button" class="btn btn-primary">문의 보내기</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-wrap">
+      <div>주식회사 현우건설 | 대표자명 추후 입력 | 사업자등록번호 추후 입력</div>
+      <div>Copyright © Hyunwoo Construction. All Rights Reserved.</div>
+    </div>
+  </footer>
+</body>
+</html>
